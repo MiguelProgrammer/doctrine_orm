@@ -1,0 +1,17 @@
+{
+    "require": {
+        "doctrine/orm": "^2.11",
+        "symfony/cache": "^6.0",
+        "doctrine/annotations": "^1.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Estudos\\Doctrine\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
+    }
+}

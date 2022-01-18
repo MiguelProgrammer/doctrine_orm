@@ -10,11 +10,14 @@ use Doctrine\ORM\Mapping\Entity;
 class Aluno
 {
     /**
-     * @id
+     * @Id
+     * @Column(type="integer")
      * @GeneratedValue
-     * @Coloumn(
      */
     private $id;
+    /**
+     * @Column(type="string")
+     */
     private $nome;
 
     public function getId(): int
@@ -30,6 +33,7 @@ class Aluno
     public function setNome(String $nome): self
     {
         $this->nome = $nome;
+        return $this;
     }
 
 

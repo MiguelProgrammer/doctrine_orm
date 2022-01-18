@@ -10,7 +10,7 @@ $entityManager = $entityManagerFactory->getEntityManager();
 
 $repositorioAlunos = $entityManager->getRepository(Aluno::class);
 /** @var Aluno[] $listaAlunos */
-$listaAlunos = $repositorioAlunos->findAll();
+$listaAlunos = $repositorioAlunos->findBy([],['nome' => 'ASC']);
 
 foreach ($listaAlunos as $aluno){
     echo "ID: {$aluno->getId()} - {$aluno->getNome()}" .PHP_EOL;

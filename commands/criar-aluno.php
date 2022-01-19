@@ -6,7 +6,10 @@ use Estudos\Doctrine\Helper\EntityManagerFactory;
 require_once __DIR__. '/../vendor/autoload.php';
 
 $aluno = new Aluno();
-$aluno->setNome($argv[1]);
+$nome = $argv;
+
+var_dump($nome);die();
+$aluno->setNome($nome);
 
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();

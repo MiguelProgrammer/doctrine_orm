@@ -16,12 +16,12 @@ foreach ($listaAlunos as $aluno){
     echo "ID: {$aluno->getId()} - {$aluno->getNome()}" .PHP_EOL;
 }
 
-/** @var Aluno $miguel */
-$miguel = $repositorioAlunos->find(1);
-echo $miguel->getNome().PHP_EOL;
-
-/** @var Aluno $miguel */
-$jessica = $repositorioAlunos->findOneBy([
-    "nome" => "Jéssica Pereira"
-]);
-echo $jessica->getNome().PHP_EOL;
+///** @var Aluno $miguel */
+//$miguel = $repositorioAlunos->find(1);
+//echo $miguel->getNome().PHP_EOL;
+//
+///** @var Aluno $miguel */
+//$jessica = $repositorioAlunos->findOneBy([
+//    "nome" => "Jéssica Pereira"
+//]);
+//echo $jessica->getNome().PHP_EOL;

@@ -8,18 +8,7 @@ require_once __DIR__. '/../vendor/autoload.php';
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
-$id = readline("ID");
-$nome = readline("NOME");
-
-$repositorioAlunos = $entityManager->getRepository(Aluno::class,$id);
-
-/** @var Aluno $aluno */
-$aluno = $repositorioAlunos->find($id);
-$aluno->setNome($nome);
-
+$id = readline();
+$aluno = $entityManager->getReference(Aluno::class,$id);
+$entityManager->remove($aluno);
 $entityManager->flush();
-
-
-
-
-

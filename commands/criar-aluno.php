@@ -1,18 +1,27 @@
 <?php
 
 use Estudos\Doctrine\Entity\Aluno;
+use Estudos\Doctrine\Entity\Telefone;
 use Estudos\Doctrine\Helper\EntityManagerFactory;
 
 require_once __DIR__. '/../vendor/autoload.php';
 
-$aluno = new Aluno();
-$nome = $argv;
-
-var_dump($nome);die();
-$aluno->setNome($nome);
-
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
+
+$aluno = new Aluno();
+$nome = $argv[1];
+$aluno->setNome($nome);
+
+for ($i = 2; $i < $argc; $i++) {
+    $numeroTelefone = $argv[$i];
+    $telefone = new Telefone();
+    $telefone->setAluno($numeroTelefone);
+
+    $entityManager->persist($telefone);
+
+    $aluno->addTelefone($telefone);
+}
 
 $entityManager->persist($aluno);
 $entityManager->flush();

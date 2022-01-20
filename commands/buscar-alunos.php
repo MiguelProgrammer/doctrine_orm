@@ -1,6 +1,7 @@
 <?php
 
 use Estudos\Doctrine\Entity\Aluno;
+use Estudos\Doctrine\Entity\Telefone;
 use Estudos\Doctrine\Helper\EntityManagerFactory;
 
 require_once __DIR__. '/../vendor/autoload.php';
@@ -13,7 +14,18 @@ $repositorioAlunos = $entityManager->getRepository(Aluno::class);
 $listaAlunos = $repositorioAlunos->findBy([],['nome' => 'ASC']);
 
 foreach ($listaAlunos as $aluno){
-    echo "ID: {$aluno->getId()} - {$aluno->getNome()}" .PHP_EOL;
+
+    $telefones = $aluno
+        ->getTelefones()
+        ->map(
+            function (Telefone $telefone)
+            {
+                return $telefone->getNumero();
+            }
+        )->toArray();
+
+    echo "ID: {$aluno->getId()} - {$aluno->getNome()}
+    Telefones '".implode(",", $telefones).PHP_EOL;
 }
 
 ///** @var Aluno $miguel */

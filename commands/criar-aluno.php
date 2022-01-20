@@ -10,8 +10,7 @@ $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
 $aluno = new Aluno();
-$nome = $argv[1];
-$aluno->setNome($nome);
+$aluno->setNome($argv[1]);
 
 for ($i = 2; $i < $argc; $i++) {
     $numeroTelefone = $argv[$i];
